@@ -1,8 +1,8 @@
 {
-  "name": "insight-api-gobyte",
-  "description": "A GoByte blockchain REST and web socket API service for Bitcore Node.",
+  "name": "insight-api-alarmx",
+  "description": "Alarmx blockchain REST and web socket API service for Bitcore Node.",
   "version": "0.6.0",
-  "repository": "git://github.com/gobytecoin/insight-api-gobyte.git",
+  "repository": "git://github.com/alarmxcore/insight-api-alarmx.git",
   "contributors": [
     {
       "name": "Gustavo Cortez",
@@ -38,18 +38,18 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/gobytecoin/insight-api-gobyte/issues"
+    "url": "https://github.com/alarmxcore/insight-api-alarmx/issues"
   },
-  "homepage": "https://github.com/gobytecoin/insight-api-gobyte",
+  "homepage": "https://github.com/alarmxcore/insight-api-alarmx",
   "license": "MIT",
   "keywords": [
     "insight",
     "insight api",
     "blockchain",
-    "gobyte api",
+    "alarmx api",
     "blockchain api",
     "json",
-    "bitcore-gobyte"
+    "bitcore-alarmx"
   ],
   "engines": {
     "node": ">=0.12.0"
@@ -61,8 +61,8 @@
   "bitcoreNode": "lib",
   "dependencies": {
     "async": "*",
-    "bitcore-lib-gobyte": "gobytecoin/bitcore-lib-gobyte",
-    "bitcore-message-gobyte": "gobytecoin/bitcore-message-gobyte",
+    "bitcore-lib-alarmx": "alarmxcore/bitcore-lib-alarmx",
+    "bitcore-message-alarmx": "alarmxcore/bitcore-message-alarmx",
     "body-parser": "^1.13.3",
     "compression": "^1.6.1",
     "lodash": "=4.17.1",

@@ -1,7 +1,7 @@
-<h1 align="center">Insight-api-gobyte</h1>
+<h1 align="center">Insight-api-alarmx</h1>
 
 <div align="center">
-  <strong>A GoByte blockchain REST and WebSocket API Service</strong>
+  <strong>A Alarmx blockchain REST and WebSocket API Service</strong>
 </div>
 <br />
 <div align="center">
@@ -11,17 +11,17 @@
       alt="API stability" />
   </a>
   <!-- Build Status -->
-  <a href="https://travis-ci.org/gobytecoin/insight-api-gobyte">
-    <img src="https://img.shields.io/travis/gobytecoin/insight-api-gobyte/master.svg?style=flat-square" alt="Build Status" />
+  <a href="https://travis-ci.org/alarmxcore/insight-api-alarmx">
+    <img src="https://img.shields.io/travis/alarmxcore/insight-api-alarmx/master.svg?style=flat-square" alt="Build Status" />
   </a>
   <!-- NPM version -->
-  <a href="https://npmjs.org/package/insight-api-gobyte">
-    <img src="https://img.shields.io/npm/v/insight-api-gobyte.svg?style=flat-square" alt="NPM version" />
+  <a href="https://npmjs.org/package/insight-api-alarmx">
+    <img src="https://img.shields.io/npm/v/insight-api-alarmx.svg?style=flat-square" alt="NPM version" />
   </a>
 </div>
 
 
-This is a backend-only service. If you're looking for the web frontend application, take a look at https://github.com/gobytecoin/insight-ui-gobyte.
+This is a backend-only service. If you're looking for the web frontend application, take a look at https://github.com/alarmxcore/insight-ui-alarmx.
 
 ## Table of Content
 - [Getting Started](#getting-started)
@@ -55,25 +55,25 @@ This is a backend-only service. If you're looking for the web frontend applicati
 - [Notes on Upgrading from v0.3](#notes-on-upgrading-from-v03)
 - [Notes on Upgrading from v0.2](#notes-on-upgrading-from-v02)
 - [Resources](#resources)
-- [License](https://github.com/gobytecoin/insight-api-gobyte/blob/master/LICENSE)
+- [License](https://github.com/alarmxcore/insight-api-alarmx/blob/master/LICENSE)
 
 ## Getting Started
 
 ```bashl
-npm install -g bitcore-node-gobyte@latest
-bitcore-node-gobyte create mynode
+npm install -g bitcore-node-alarmx@latest
+bitcore-node-alarmx create mynode
 cd mynode
-bitcore-node-gobyte install insight-api-gobyte
-bitcore-node-gobyte start
+bitcore-node-alarmx install insight-api-alarmx
+bitcore-node-alarmx start
 ```
 
-The API endpoints will be available by default at: `http://localhost:3001/insight-api-gobyte/`
+The API endpoints will be available by default at: `http://localhost:3001/insight-api-alarmx/`
 
 ### Prerequisites
 
-- [Bitcore Node GoByte 3.x](https://github.com/gobytecoin/bitcore-node-gobyte)
+- [Bitcore Node Alarmx 3.x](https://github.com/alarmxcore/bitcore-node-alarmx)
 
-**Note:** You can use an existing GoByte data directory, however `txindex`, `addressindex`, `timestampindex` and `spentindex` needs to be set to true in `gobyte.conf`, as well as a few other additional fields.
+**Note:** You can use an existing Alarmx data directory, however `txindex`, `addressindex`, `timestampindex` and `spentindex` needs to be set to true in `alarmx.conf`, as well as a few other additional fields.
 
 ### Query Rate Limit
 
@@ -97,21 +97,21 @@ Or disabled entirely with:
     }
   }
   ```
-  
+
 
 ## API HTTP Endpoints
 
 ### Block
 ```
-  /insight-api-gobyte/block/[:hash]
-  /insight-api-gobyte/block/0000000006e7b38e8ab2d351239019c01de9a148b5baef58cfe52dfd9917cedc
+  /insight-api-alarmx/block/[:hash]
+  /insight-api-alarmx/block/0000000006e7b38e8ab2d351239019c01de9a148b5baef58cfe52dfd9917cedc
 ```
 
 ### Block Index
 Get block hash by height
 ```
-  /insight-api-gobyte/block-index/[:height]
-  /insight-api-gobyte/block-index/0
+  /insight-api-alarmx/block-index/[:height]
+  /insight-api-alarmx/block-index/0
 ```
 This would return:
 ```
@@ -124,7 +124,7 @@ which is the hash of the TestNet Genesis block (0 height)
 
 ### Raw Block
 ```
-  /insight-api-gobyte/rawblock/[:blockHash]
+  /insight-api-alarmx/rawblock/[:blockHash]
 ```
 
 This would return:
@@ -138,7 +138,7 @@ This would return:
 
 Get block summaries by date:
 ```
-  /insight-api-gobyte/blocks?limit=3&blockDate=2017-04-22
+  /insight-api-alarmx/blocks?limit=3&blockDate=2017-04-22
 ```
 
 Example response:
@@ -172,31 +172,31 @@ Example response:
 
 ### Transaction
 ```
-  /insight-api-gobyte/tx/[:txid]
-  /insight-api-gobyte/tx/ebdca263fe1c75c8609ce8fe3d82a320a0b3ca840f4df995883f5dab1b9ff8d9
-  /insight-api-gobyte/rawtx/[:rawid]
-  /insight-api-gobyte/rawtx/ebdca263fe1c75c8609ce8fe3d82a320a0b3ca840f4df995883f5dab1b9ff8d9
+  /insight-api-alarmx/tx/[:txid]
+  /insight-api-alarmx/tx/ebdca263fe1c75c8609ce8fe3d82a320a0b3ca840f4df995883f5dab1b9ff8d9
+  /insight-api-alarmx/rawtx/[:rawid]
+  /insight-api-alarmx/rawtx/ebdca263fe1c75c8609ce8fe3d82a320a0b3ca840f4df995883f5dab1b9ff8d9
 ```
 
 ### Address
 ```
-  /insight-api-gobyte/addr/[:addr][?noTxList=1][&from=&to=]
-  /insight-api-gobyte/addr/ybi3gej7Ea1MysEYLR7UMs3rMuLJH5aVsW?noTxList=1
-  /insight-api-gobyte/addr/yPv7h2i8v3dJjfSH4L3x91JSJszjdbsJJA?from=1000&to=2000
+  /insight-api-alarmx/addr/[:addr][?noTxList=1][&from=&to=]
+  /insight-api-alarmx/addr/ybi3gej7Ea1MysEYLR7UMs3rMuLJH5aVsW?noTxList=1
+  /insight-api-alarmx/addr/yPv7h2i8v3dJjfSH4L3x91JSJszjdbsJJA?from=1000&to=2000
 ```
 
 ### Address Properties
 ```
-  /insight-api-gobyte/addr/[:addr]/balance
-  /insight-api-gobyte/addr/[:addr]/totalReceived
-  /insight-api-gobyte/addr/[:addr]/totalSent
-  /insight-api-gobyte/addr/[:addr]/unconfirmedBalance
+  /insight-api-alarmx/addr/[:addr]/balance
+  /insight-api-alarmx/addr/[:addr]/totalReceived
+  /insight-api-alarmx/addr/[:addr]/totalSent
+  /insight-api-alarmx/addr/[:addr]/unconfirmedBalance
 ```
 The response contains the value in Satoshis.
 
 ### Unspent Outputs
 ```
-  /insight-api-gobyte/addr/[:addr]/utxo
+  /insight-api-alarmx/addr/[:addr]/utxo
 ```
 Sample return:
 ```
@@ -217,13 +217,13 @@ Sample return:
 ### Unspent Outputs for Multiple Addresses
 GET method:
 ```
-  /insight-api-gobyte/addrs/[:addrs]/utxo
-  /insight-api-gobyte/addrs/ygwNQgE5f15Ygopbs2KPRYMS4TcffqBpsz,ygw5yCtVkx3hREke4L8qDqQtnNoAiPKTSx/utxo
+  /insight-api-alarmx/addrs/[:addrs]/utxo
+  /insight-api-alarmx/addrs/ygwNQgE5f15Ygopbs2KPRYMS4TcffqBpsz,ygw5yCtVkx3hREke4L8qDqQtnNoAiPKTSx/utxo
 ```
 
 POST method:
 ```
-  /insight-api-gobyte/addrs/utxo
+  /insight-api-alarmx/addrs/utxo
 ```
 
 POST params:
@@ -257,25 +257,25 @@ Sample output:
 
 ### Transactions by Block
 ```
-  /insight-api-gobyte/txs/?block=HASH
-  /insight-api-gobyte/txs/?block=000000000814dd7cf470bd835334ea6624ebf0291ea857a5ab37c65592726375
+  /insight-api-alarmx/txs/?block=HASH
+  /insight-api-alarmx/txs/?block=000000000814dd7cf470bd835334ea6624ebf0291ea857a5ab37c65592726375
 ```
 ### Transactions by Address
 ```
-  /insight-api-gobyte/txs/?address=ADDR
-  /insight-api-gobyte/txs/?address=yWFfdp9nLUjy1kJczFhRuBMUjtTkTTiyMv
+  /insight-api-alarmx/txs/?address=ADDR
+  /insight-api-alarmx/txs/?address=yWFfdp9nLUjy1kJczFhRuBMUjtTkTTiyMv
 ```
 
 ### Transactions for Multiple Addresses
 GET method:
 ```
-  /insight-api-gobyte/addrs/[:addrs]/txs[?from=&to=]
-  /insight-api-gobyte/addrs/ygwNQgE5f15Ygopbs2KPRYMS4TcffqBpsz,ygw5yCtVkx3hREke4L8qDqQtnNoAiPKTSx/txs?from=0&to=20
+  /insight-api-alarmx/addrs/[:addrs]/txs[?from=&to=]
+  /insight-api-alarmx/addrs/ygwNQgE5f15Ygopbs2KPRYMS4TcffqBpsz,ygw5yCtVkx3hREke4L8qDqQtnNoAiPKTSx/txs?from=0&to=20
 ```
 
 POST method:
 ```
-  /insight-api-gobyte/addrs/txs
+  /insight-api-alarmx/addrs/txs
 ```
 
 POST params:
@@ -321,10 +321,10 @@ Note: if pagination params are not specified, the result is an array of transact
 
 ### Transaction Broadcasting
 
-#### Standard transaction 
+#### Standard transaction
 POST method:
 ```
-  /insight-api-gobyte/tx/send
+  /insight-api-alarmx/tx/send
 ```
 POST params:
 ```
@@ -348,7 +348,7 @@ POST response:
   }
 ```
 
-#### InstantSend transaction 
+#### InstantSend transaction
 
 Conditions :   
 * Every inputs should have 6 confirmations.  
@@ -357,7 +357,7 @@ Conditions :
 
 POST method:
 ```
-  /insight-api-gobyte/tx/sendix
+  /insight-api-alarmx/tx/sendix
 ```
 POST params:
 ```
@@ -370,13 +370,13 @@ POST response:
   }
 ```
 
-### Sporks List 
-GET method: 
+### Sporks List
+GET method:
 ```
-  /insight-api-gobyte/sporks
+  /insight-api-alarmx/sporks
 ```
 
-Sample output: 
+Sample output:
 ```
 {"sporks":
     {
@@ -396,7 +396,7 @@ Sample output:
 ### Budget Proposal List
 GET method:
 ```
-  /insight-api-gobyte/gobject/list/proposal
+  /insight-api-alarmx/gobject/list/proposal
 ```
 
 Sample output:
@@ -409,7 +409,7 @@ Sample output:
           payment_amount: 5,
           start_epoch: 1482105600,
           type: 1,
-          url: 'https://www.gobyte.org'
+          url: 'https://www.alarmx.io'
         },
         AbsoluteYesCount: 40,
         YesCount: 40,
@@ -420,8 +420,8 @@ Sample output:
 ### Budget Proposal Detail
 GET method:
 ```
-  /insight-api-gobyte/gobject/get/[:hash]
-  /insight-api-gobyte/gobject/get/b6af3e70c686f660541a77bc035df2e5e46841020699ce3ec8fad786f7d1aa35
+  /insight-api-alarmx/gobject/get/[:hash]
+  /insight-api-alarmx/gobject/get/b6af3e70c686f660541a77bc035df2e5e46841020699ce3ec8fad786f7d1aa35
 ```
 
 Sample output:
@@ -436,7 +436,7 @@ Sample output:
           payment_amount: 5,
           start_epoch: 1482105600,
           type: 1,
-          url: 'https://www.gobyte.org'
+          url: 'https://www.alarmx.io'
         },
         CreationTime: 1482223714,
         FundingResult: {
@@ -467,12 +467,12 @@ Sample output:
 
 ### Masternodes List
 ```
-  /insight-api-gobyte/masternodes/list
+  /insight-api-alarmx/masternodes/list
 ```
 ### Validate Masternode
 ```
-  /insight-api-gobyte/masternodes/validate/[:payee]
-  /insight-api-gobyte/masternodes/validate/yRuALkPpeYpTgxdNn2L5YgGktASJYDYPAo
+  /insight-api-alarmx/masternodes/validate/[:payee]
+  /insight-api-alarmx/masternodes/validate/yRuALkPpeYpTgxdNn2L5YgGktASJYDYPAo
 ```
 
 Sample valid output:
@@ -482,7 +482,7 @@ Sample valid output:
         "vin":"e3a6b7878a7e9413898bb379b323c521676f9d460db17ec3bf42d9ac0c9a432f-1",
         "status":"ENABLED",
         "rank":1,
-        "ip":"217.182.229.146:19999",
+        "ip":"217.182.229.146:12579",
         "protocol":70208,
         "payee":"yRuALkPpeYpTgxdNn2L5YgGktASJYDYPAo",
         "activeseconds":158149,
@@ -492,17 +492,17 @@ Sample valid output:
 
 ### Historic Blockchain Data Sync Status
 ```
-  /insight-api-gobyte/sync
+  /insight-api-alarmx/sync
 ```
 
 ### Live Network P2P Data Sync Status
 ```
-  /insight-api-gobyte/peer
+  /insight-api-alarmx/peer
 ```
 
 ### Status of the Bitcoin Network
 ```
-  /insight-api-gobyte/status?q=xxx
+  /insight-api-alarmx/status?q=xxx
 ```
 
 Where "xxx" can be:
@@ -515,7 +515,7 @@ Where "xxx" can be:
 
 ### Utility Methods
 ```
-  /insight-api-gobyte/utils/estimatefee[?nbBlocks=2]
+  /insight-api-alarmx/utils/estimatefee[?nbBlocks=2]
 ```
 
 ## Web Socket API
@@ -678,4 +678,4 @@ Caching support has not yet been added in the v0.3 upgrade.
 
 ## Resources
 
-- (Medium)[How to setup a GoByte Instant-Send Transaction using Insight API?????????The comprehensive way](https://medium.com/@obusco/setup-instant-send-transaction-the-comprehensive-way-a80a8a0572e)
+- (Medium)[How to setup a Alarmx Instant-Send Transaction using Insight API?????????The comprehensive way](https://medium.com/@obusco/setup-instant-send-transaction-the-comprehensive-way-a80a8a0572e)
