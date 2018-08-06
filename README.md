@@ -482,7 +482,7 @@ Sample valid output:
         "vin":"e3a6b7878a7e9413898bb379b323c521676f9d460db17ec3bf42d9ac0c9a432f-1",
         "status":"ENABLED",
         "rank":1,
-        "ip":"217.182.229.146:12579",
+        "ip":"217.182.229.146:19999",
         "protocol":70208,
         "payee":"yRuALkPpeYpTgxdNn2L5YgGktASJYDYPAo",
         "activeseconds":158149,
@@ -648,8 +648,8 @@ There are a few changes to the `GET` endpoint for `/addr/[:address]`:
 
 Some additional general notes:
 - The transaction history for an address will be sorted in block order
-- The response for the `/sync` endpoint does not include `startTs` and `endTs` as the sync is no longer relevant as indexes are built in alarmxd.
-- The endpoint for `/peer` is no longer relevant connection to alarmxd is via ZMQ.
+- The response for the `/sync` endpoint does not include `startTs` and `endTs` as the sync is no longer relevant as indexes are built in bitcoind.
+- The endpoint for `/peer` is no longer relevant connection to bitcoind is via ZMQ.
 - `/tx` endpoint results will now include block height, and spentTx related fields will be set to `null` if unspent.
 - `/block` endpoint results does not include `confirmations` and will include `poolInfo`.
 
@@ -668,7 +668,7 @@ The `/tx/<txid>` endpoint JSON response will not include the following fields on
 object.
 - `spentTs`
 
-The `/status?q=getTxOutSetInfo` method has also been removed due to the query being very slow and locking alarmxd.
+The `/status?q=getTxOutSetInfo` method has also been removed due to the query being very slow and locking bitcoind.
 
 Plug-in support for Insight API is also no longer available, as well as the endpoints:
 - `/email/retrieve`

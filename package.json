@@ -1,6 +1,6 @@
 {
   "name": "insight-api-alarmx",
-  "description": "Alarmx blockchain REST and web socket API service for Bitcore Node.",
+  "description": "A Alarmx blockchain REST and web socket API service for Bitcore Node.",
   "version": "0.6.0",
   "repository": "git://github.com/alarmxcore/insight-api-alarmx.git",
   "contributors": [

@@ -21,7 +21,7 @@ describe('Spork', function () {
 		};
 		var node = {
 			services: {
-				alarmxd: {
+				bitcoind: {
 					getSpork: sinon.stub().callsArgWith(0, null, SporkList)
 				}
 			}
